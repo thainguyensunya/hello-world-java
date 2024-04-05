@@ -3,6 +3,7 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -17,6 +18,14 @@ create(DslContext.projectId, BuildType({
 
     vcs {
         root(RelativeId("HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster4"))
+    }
+
+    steps {
+        script {
+            name = "Copy jar file to S3"
+            id = "Copy_jar_file_to_S3"
+            scriptContent = "aws s3 copy *.jar s3://abx-xyz"
+        }
     }
 
     triggers {

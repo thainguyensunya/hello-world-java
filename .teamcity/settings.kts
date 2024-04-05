@@ -74,6 +74,14 @@ object Package_1 : BuildType({
         root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster3)
     }
 
+    steps {
+        maven {
+            name = "Package java app using mvn"
+            id = "Package_java_app_using_mvn"
+            goals = "package"
+        }
+    }
+
     triggers {
         vcs {
         }

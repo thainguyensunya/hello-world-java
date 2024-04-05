@@ -50,6 +50,11 @@ object Build : BuildType({
             goals = "clean compile"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
+        maven {
+            name = "Package java app using mvn"
+            id = "Package_java_app_using_mvn"
+            goals = "package"
+        }
     }
 
     triggers {

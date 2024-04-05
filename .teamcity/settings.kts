@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
@@ -54,6 +55,11 @@ object Build : BuildType({
             name = "Package java app using mvn"
             id = "Package_java_app_using_mvn"
             goals = "package"
+        }
+        script {
+            name = "Deploy jar file to S3"
+            id = "Deploy_jar_file_to_S3"
+            scriptContent = "aws s3 copy *.jar s3://xyz"
         }
     }
 

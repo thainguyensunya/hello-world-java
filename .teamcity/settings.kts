@@ -30,10 +30,12 @@ version = "2024.03"
 
 project {
 
+    vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster3)
     vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1)
     vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2)
 
     buildType(Build)
+    buildType(Package_1)
 }
 
 object Build : BuildType({
@@ -64,6 +66,25 @@ object Build : BuildType({
     }
 })
 
+object Package_1 : BuildType({
+    id("Package")
+    name = "Package"
+
+    vcs {
+        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster3)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
 object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1 : GitVcsRoot({
     name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (1)"
     url = "https://github.com/thainguyensunya/hello-world-java"
@@ -77,6 +98,17 @@ object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1 : GitVcsRoot(
 
 object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2 : GitVcsRoot({
     name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (2)"
+    url = "https://github.com/thainguyensunya/hello-world-java"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "thainguyensunya"
+        password = "credentialsJSON:bc09458d-2cc2-4134-b432-9103ac892b7f"
+    }
+})
+
+object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster3 : GitVcsRoot({
+    name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (3)"
     url = "https://github.com/thainguyensunya/hello-world-java"
     branch = "refs/heads/master"
     branchSpec = "refs/heads/*"

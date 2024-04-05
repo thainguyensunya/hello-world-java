@@ -40,7 +40,7 @@ object Build : BuildType({
     name = "Build"
 
     vcs {
-        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2)
+        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster)
     }
 
     steps {
@@ -69,7 +69,7 @@ object Package : BuildType({
     name = "Package"
 
     vcs {
-        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster3)
+        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster)
     }
 
     steps {

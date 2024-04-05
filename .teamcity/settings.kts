@@ -65,6 +65,7 @@ object Build : BuildType({
 
     triggers {
         vcs {
+            branchFilter = "+:dev"
         }
     }
 

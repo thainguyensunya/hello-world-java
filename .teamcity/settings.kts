@@ -1,4 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
@@ -28,10 +30,42 @@ version = "2024.03"
 project {
 
     vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1)
+    vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2)
+
+    buildType(Build)
 }
+
+object Build : BuildType({
+    name = "Build"
+
+    vcs {
+        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
 
 object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1 : GitVcsRoot({
     name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (1)"
+    url = "https://github.com/thainguyensunya/hello-world-java"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "thainguyensunya"
+        password = "credentialsJSON:bc09458d-2cc2-4134-b432-9103ac892b7f"
+    }
+})
+
+object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2 : GitVcsRoot({
+    name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (2)"
     url = "https://github.com/thainguyensunya/hello-world-java"
     branch = "refs/heads/master"
     branchSpec = "refs/heads/*"

@@ -51,11 +51,6 @@ object Build : BuildType({
             goals = "clean compile"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
-        maven {
-            name = "Package java app using mvn"
-            id = "Package_java_app_using_mvn"
-            goals = "package"
-        }
         script {
             name = "Deploy jar file to S3"
             id = "Deploy_jar_file_to_S3"

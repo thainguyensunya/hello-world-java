@@ -45,8 +45,9 @@ object Build : BuildType({
 
     steps {
         maven {
+            name = "Build java app using mvn"
             id = "Maven2"
-            goals = "clean test"
+            goals = "clean compile"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
     }

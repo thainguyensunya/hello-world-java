@@ -1,4 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -25,4 +28,37 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2024.03"
 
 project {
+
+    vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1)
+
+    buildType(Build)
 }
+
+object Build : BuildType({
+    name = "Build"
+
+    vcs {
+        root(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
+object HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1 : GitVcsRoot({
+    name = "https://github.com/thainguyensunya/hello-world-java#refs/heads/master (1)"
+    url = "https://github.com/thainguyensunya/hello-world-java"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "thainguyensunya"
+        password = "credentialsJSON:bc09458d-2cc2-4134-b432-9103ac892b7f"
+    }
+})

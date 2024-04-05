@@ -35,7 +35,7 @@ project {
     vcsRoot(HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster2)
 
     buildType(Build)
-    buildType(Package_1)
+    buildType(Package)
 }
 
 object Build : BuildType({
@@ -66,7 +66,7 @@ object Build : BuildType({
     }
 })
 
-object Package_1 : BuildType({
+object Package : BuildType({
     id("Package")
     name = "Package"
 
@@ -84,6 +84,7 @@ object Package_1 : BuildType({
 
     triggers {
         vcs {
+            branchFilter = "+:dev"
         }
     }
 

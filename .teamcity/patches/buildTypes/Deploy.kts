@@ -43,7 +43,7 @@ create(DslContext.projectId, BuildType({
         }
         artifacts(RelativeId("Deploy")) {
             buildRule = lastSuccessful()
-            artifactRules = "target/*.jar"
+            artifactRules = "*.jar"
         }
     }
 }))

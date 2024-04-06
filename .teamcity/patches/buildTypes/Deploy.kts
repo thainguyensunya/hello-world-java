@@ -41,6 +41,10 @@ create(DslContext.projectId, BuildType({
     dependencies {
         snapshot(RelativeId("Package")) {
         }
+        artifacts(RelativeId("Deploy")) {
+            buildRule = lastSuccessful()
+            artifactRules = "target/*.jar"
+        }
     }
 }))
 

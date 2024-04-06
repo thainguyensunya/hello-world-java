@@ -24,7 +24,7 @@ create(DslContext.projectId, BuildType({
         script {
             name = "Deploy jar file to S3"
             id = "Deploy_jar_file_to_S3"
-            scriptContent = "aws s3 copy *.jar s3://teamcity-demo-hello-world-app"
+            scriptContent = "aws s3 copy *.jar s3://teamcity-demo-hello-world-app/"
         }
     }
 

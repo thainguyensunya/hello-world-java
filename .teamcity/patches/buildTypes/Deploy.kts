@@ -16,6 +16,10 @@ create(DslContext.projectId, BuildType({
     id("Deploy")
     name = "Deploy"
 
+    params {
+        password("env. AWS_ACCESS_KEY_ID", "credentialsJSON:a7938976-7bc6-4bcb-94e2-172540860d7f")
+    }
+
     vcs {
         root(RelativeId("HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1"))
     }

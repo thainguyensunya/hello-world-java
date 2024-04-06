@@ -17,6 +17,7 @@ create(DslContext.projectId, BuildType({
     name = "Deploy"
 
     params {
+        password("env.AWS_SECRET_ACCESS_KEY", "credentialsJSON:178c777e-0fb8-4d69-a5af-76c7bdb5c8c2")
         password("env.AWS_ACCESS_KEY_ID", "credentialsJSON:a7938976-7bc6-4bcb-94e2-172540860d7f")
     }
 

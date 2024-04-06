@@ -37,5 +37,10 @@ create(DslContext.projectId, BuildType({
         perfmon {
         }
     }
+
+    dependencies {
+        snapshot(RelativeId("Package")) {
+        }
+    }
 }))
 

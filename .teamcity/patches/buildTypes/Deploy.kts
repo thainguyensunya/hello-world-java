@@ -40,11 +40,13 @@ create(DslContext.projectId, BuildType({
     }
 
     dependencies {
-        snapshot(RelativeId("Package")) {
-        }
-        artifacts(RelativeId("Deploy")) {
-            buildRule = lastSuccessful()
-            artifactRules = "gs-maven-*.jar"
+        dependency(RelativeId("Package")) {
+            snapshot {
+            }
+
+            artifacts {
+                artifactRules = "gs-maven-*.jar"
+            }
         }
     }
 }))

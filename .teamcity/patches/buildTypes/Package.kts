@@ -9,6 +9,11 @@ To apply the patch, change the buildType with id = 'Package'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Package")) {
+    check(artifactRules == "") {
+        "Unexpected option value: artifactRules = $artifactRules"
+    }
+    artifactRules = "target/*.jar"
+
     dependencies {
         add(RelativeId("Build")) {
             snapshot {

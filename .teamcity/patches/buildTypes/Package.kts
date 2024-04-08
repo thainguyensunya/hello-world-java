@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
+import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -12,5 +14,30 @@ changeBuildType(RelativeId("Package")) {
     vcs {
         remove(DslContext.settingsRoot.id!!)
         add(RelativeId("HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1"))
+    }
+
+    features {
+        val feature1 = find<PullRequests> {
+            pullRequests {
+                vcsRootExtId = "${DslContext.settingsRoot.id}"
+                provider = github {
+                    authType = storedToken {
+                        tokenId = "tc_token_id:CID_ee6e491dda11e70dd2738bb58cc294ec:1:7e5d8d0b-93ba-4930-a5e8-923697e8d3fa"
+                    }
+                    filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
+                }
+            }
+        }
+        feature1.apply {
+            vcsRootExtId = "HelloWorldJava_HttpsGithubComThainguyensunyaHelloWorldJavaRefsHeadsMaster1"
+            provider = github {
+                serverUrl = ""
+                authType = vcsRoot()
+                filterSourceBranch = ""
+                filterTargetBranch = ""
+                filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
+            }
+            param("tokenId", "")
+        }
     }
 }

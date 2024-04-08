@@ -78,7 +78,7 @@ object Package : BuildType({
                 authType = storedToken {
                     tokenId = "tc_token_id:CID_ee6e491dda11e70dd2738bb58cc294ec:1:7e5d8d0b-93ba-4930-a5e8-923697e8d3fa"
                 }
-                filterSourceBranch = "+:dev"
+                // filterSourceBranch = "+:dev"
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
             }
         }
